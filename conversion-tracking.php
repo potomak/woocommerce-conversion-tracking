@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: WooCommerce Conversion Tracking
-Plugin URI: http://wedevs.com/
-Description: Adds various conversion tracking codes to cart, checkout, registration success and product page on WooCommerce
+Plugin Name: WooCommerce FB Pixel
+Plugin URI: https://github.com/potomak/woocommerce-conversion-tracking
+Description: Add Facebook pixel tracking for page views, single product page views, add to cart actions, and checkout on WooCommerce.
 Version: 0.1.1
-Author: Tareq Hasan
-Author URI: http://tareq.wedevs.com/
+Author: Giovanni Cappellotto
+Author URI: http://curlybrackets.it/
 License: GPL2
 */
 
@@ -85,7 +85,7 @@ class WeDevs_WC_Conversion_Tracking {
      * @uses load_plugin_textdomain()
      */
     public function localization_setup() {
-        load_plugin_textdomain( 'wc-conversion-tracking', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'wc-fb-pixel', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     /**
