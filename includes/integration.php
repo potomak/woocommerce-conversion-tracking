@@ -174,7 +174,7 @@ EOSTR;
             echo "<!-- Tracking pixel by WooCommerce FB Pixel plugin -->\n";
             echo <<<EOSTR
 <script>
-window._fbq.push(['track', '{$this->get_option( 'product' )}', {'value':'{$product->get_price()}','currency':'{$this->get_option( 'currency' )}','sku':'{$product->get_sku()}'}]);
+window._fbq.push(['track', '{$this->get_option( 'product' )}', {'value':'0','price':'{$product->get_price()}','currency':'{$this->get_option( 'currency' )}','sku':'{$product->get_sku()}'}]);
 
 try {
   jQuery(document).ready(function() {
@@ -189,11 +189,11 @@ try {
           var price_match = variations_found[0].price_html.match(/\d+.\d+/);
           if (price_match.length > 0) {
             var price = parseFloat(price_match[0]);
-            window._fbq.push(['track', '{$this->get_option( 'add-to-cart' )}', {'value':quantity*price,'currency':'{$this->get_option( 'currency' )}','variation_id':variation_id}]);
+            window._fbq.push(['track', '{$this->get_option( 'add-to-cart' )}', {'value':0,'price':quantity*price,'currency':'{$this->get_option( 'currency' )}','variation_id':variation_id}]);
           }
         }
       } catch(e) {
-        window._fbq.push(['track', '{$this->get_option( 'add-to-cart' )}', {'value':'{$product->get_price()}','currency':'{$this->get_option( 'currency' )}'}]);
+        window._fbq.push(['track', '{$this->get_option( 'add-to-cart' )}', {'value':0,'price':'{$product->get_price()}','currency':'{$this->get_option( 'currency' )}'}]);
       }
     });
   });
@@ -201,7 +201,7 @@ try {
   // NOOP
 }
 </script>
-<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev={$this->get_option( 'product' )}&amp;cd[value]={$product->get_price()}&amp;cd[currency]={$this->get_option( 'currency' )}&amp;cd[sku]={$product->get_sku()}&amp;noscript=1" /></noscript>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev={$this->get_option( 'product' )}&amp;cd[value]=0&amp;cd[price]={$product->get_price()}&amp;cd[currency]={$this->get_option( 'currency' )}&amp;cd[sku]={$product->get_sku()}&amp;noscript=1" /></noscript>
 EOSTR;
             echo "\n<!-- Tracking pixel by WooCommerce FB Pixel plugin -->\n";
         }
