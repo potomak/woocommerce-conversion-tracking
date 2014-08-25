@@ -145,7 +145,7 @@ class WeDevs_WC_Tracking_Integration extends WC_Integration {
   _fbq.push(['addPixelId', '{$this->get_option( 'website' )}']);
 })();
 window._fbq = window._fbq || [];
-window._fbq.push(['track', 'PixelInitialized', {}]);
+window._fbq.push(['track', 'PixelInitialized', {'referrer': document.referrer, 'user_agent': navigator.userAgent, 'language': navigator.language}]);
 </script>
 <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id={$this->get_option( 'website' )}&amp;ev=NoScript" /></noscript>
 EOSTR;
